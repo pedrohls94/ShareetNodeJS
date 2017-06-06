@@ -1,0 +1,175 @@
+body {
+    background-color: #f1f1f1;
+}
+
+/*TopBar*/
+.og-top {
+    position:fixed;
+    width:100%;
+    z-index:1;
+    top:0;
+    left:0;
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.4);
+}
+
+.og-bar {
+    width:100%;
+    overflow:hidden;
+    display:inline-block;
+    float:left;
+    border:none;
+    outline:none;
+    position:static;
+    font-size:18px;
+}
+
+.og-bar-item {
+    padding:12px 24px;
+    float:right;
+    width:auto;
+    border:none;
+    outline:none;
+    display:block;
+    white-space:normal;
+    text-align:center;
+}
+
+.og-bar-item:hover {
+    background-color:#f1f1f1 !important;
+    color: #d74343 !important
+}
+
+/*Dropdown on TopBar*/
+.og-dropbtn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.og-dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.og-dropdown {
+    float:right;
+    display: inline-block;
+}
+
+.og-dropdown:hover .og-dropdown-content {
+    display: block;
+    min-width: 150px;
+}
+
+.og-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.og-dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/*SideBar*/
+.og-sidebar{
+    height:100%;
+    width:250;
+    background-color:#fff;
+    top:0;
+    left:0;
+    position:fixed!important;
+    z-index:1;
+    overflow:auto;
+    border-right: 1px solid #bd2a2a;
+    box-shadow: 0px 47px 16px 0px rgba(0,0,0,0.4);
+}
+
+.og-sidebar-top {
+    padding:0;
+    margin:0;
+    left:0;
+    width:100%;
+    height: 200;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 60;
+    border-bottom: 1px solid #bd2a2a;
+}
+
+.og-sidebar-item {
+    padding:12px 36px;
+    float:top;
+    width:auto;
+    border:none;
+    outline:none;
+    display:block;
+    white-space:normal;
+    text-align:center;
+    text-decoration: none;
+    text-align: left;
+    font-size: 20;
+}
+
+.og-sidebar-item:hover {
+    background-color: #d74343 !important;
+    color: #feeeee !important;
+}
+
+/*Cards*/
+.og-card {
+    background-color: rgba(256,256,256,0.85);
+    width: 80%;
+    max-width: 50em;
+    padding: 20px;
+    position: relative;
+    border-radius: 2px;
+    margin: 1em auto;
+    box-shadow:0px 0px 3px rgba(0,0,0,0.3);
+    z-index: 0;
+}
+
+.og-card:hover {
+    box-shadow:0px 2px 6px rgba(0,0,0,0.45);
+    -webkit-transition:all 250ms;
+         -moz-transition:all 250ms;
+             -o-transition:all 250ms;
+                    transition:all 250ms;
+}
+
+.og-card-title {
+    color: black;
+    font-weight: normal;
+    font-size: 14pt;
+    border-bottom: 1px solid #cdcdcd;
+    padding: 0.3em;
+    padding-top: 0;
+    width: auto;
+}
+
+.og-card-text {
+    padding: 0.4em;
+    padding-bottom: 0;
+}
+
+.og-content-area {
+    position: absolute;
+    top: 2.4em;
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+/*Colours, from lightest to darkest*/
+.og-red-l3 {background-color: #feeeee !important;  color: #bd2a2a !important}
+.og-red-l2 {background-color: #f7766e !important;  color: #bd2a2a !important}
+.og-red-l1 {background-color: #f5554a !important;  color: #feeeee !important}
+.og-red-d1 {background-color: #F44336 !important;  color: #feeeee !important}
+.og-red-d2 {background-color: #d74343 !important;  color: #feeeee !important}
+.og-red-d3 {background-color: #bd2a2a !important;  color: #feeeee !important}

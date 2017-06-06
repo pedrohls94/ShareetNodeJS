@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <% include ejs/head.ejs %>
+  </head>
+
+  <body>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3style.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee,.fa-briefcase,.fa-cubes {font-size:200px}
+    </style>
+    <script>
+        window.onclick = function(event) {
+            var singUpModal = document.getElementById('signUpModal');
+            var loginModal = document.getElementById('loginModal');
+            if (event.target == loginModal || event.target == signUpModal) {
+                signUpModal.style.display = "none";
+                loginModal.style.display = "none";
+            }
+        }
+    </script>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+      <h1 class="w3-margin w3-jumbo">Shareet</h1>
+      <p class="w3-xlarge">Never forget when you owe. Or are owed to.</p>
+      <button onclick="document.getElementById('loginModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline">Login</button>
+      <button onclick="document.getElementById('signUpModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline">Sign Up</button>
+    </header>
+
+    <!-- SignUp Modal -->
+    <div id="signUpModal" class="modal">
+      <span onclick="document.getElementById('signUpModal').style.display='none'" class="close" title="Close Modal">×</span>
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container">
+          <label><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required>
+
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+          <div class="clearfix">
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <span onclick="document.getElementById('loginModal').style.display='none'" class="close" title="Close Modal">×</span>
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <div class="clearfix">
+            <button type="submit" class="signupbtn">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1>Pay First. Share Later.</h1>
+          <h5 class="w3-padding-16">And don't worry. We will take note on everything you pay and everyone who should help you pay it.</h5>
+          <p class="w3-text-grey">Remember that time when someone in your group paid for something, while the rest agreed to share? How did you take note on who paid and who didn't? Now imagine a trip where you paid for the train tickets to go to Kiruna, Robert paid for the tickets to come back, Charly paid the hotel on the first night, Julio the other two nights and Sussie paid for the tickets to a local attraction. Does it seem harder to track? Well, not with Shareet. </p>
+        </div><html>
+        <div class="w3-third w3-center">
+          <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-third w3-center">
+          <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+        </div>
+        <div class="w3-twothird">
+          <h1>It's fast. It's simple.</h1>
+          <h5 class="w3-padding-16">Whenever you pay for something, just tell us how much it cost and who, among your friends, are gonna share it.</h5>
+          <p class="w3-text-grey">We will show you the history of everything you bought, everything you agreed to help buy, everyone who you paid and who paid to you. We will also present everyone that owes something to you, and remind you of everyone you owe to. Ah, did you know we're good with math? So leave it to us! If 30 different people owe you for 100 different reasons, we will show you the total amount each one of them owes you.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1>You won't work alone.</h1>
+          <h5 class="w3-padding-16">It would be too much for you alone to register every payment you received.</h5>
+          <p class="w3-text-grey">Therefore, every friend of yours that agreed on sharing the costs of an event with you will be able to tell us it made a payment to you. After all, it's of their interest that you remember they already paid. And that they remember it, too. Even though we don't expect your friends to lie, you'll be able to confirm every payment if you wanna be sure.</p>
+        </div>
+        <div class="w3-third w3-center">
+          <i class="fa fa-briefcase w3-padding-64 w3-text-red"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fourth Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-third w3-center">
+          <i class="fa fa-cubes w3-padding-64 w3-text-red w3-margin-right"></i>
+        </div>
+        <div class="w3-twothird">
+          <h1>Organization is key.</h1>
+          <h5 class="w3-padding-16">You might have groups of friends with which you share a weekly activity, or with whom you're travelling. If it's so, it would probably make sense to separate them in groups, right?</h5>
+          <p class="w3-text-grey">Creating tags for people, purchases and payments will raise the organization to a marvelous level. You'll find people faster when registering a purchase, the numbers we show to you will be tidier, separated by tags. All in all, Shareet will look way more beautiful (than it already is). </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Before Footer -->
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Enjoy</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+      <div class="w3-xlarge w3-padding-32">
+        <a href="https://www.facebook.com/theogygiaproject/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+     </div>
+     <p>Powered by <a href="https://ogygialoves.me" target="_blank">The Ogygia Project</a></p>
+    </footer>
+
+  </body>
+</html>
