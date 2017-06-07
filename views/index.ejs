@@ -1,33 +1,32 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <% include ejs/head.ejs %>
-  </head>
-
-  <body>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/w3style.css">
-    <link rel="stylesheet" href="css/modals.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-        .fa-anchor,.fa-coffee,.fa-briefcase,.fa-cubes {font-size:200px}
-    </style>
-    <script>
-        window.onclick = function(event) {
-            var singUpModal = document.getElementById('signUpModal');
-            var loginModal = document.getElementById('loginModal');
-            if (event.target == loginModal || event.target == signUpModal) {
-                signUpModal.style.display = "none";
-                loginModal.style.display = "none";
+    <head>
+        <% include ejs/head.ejs %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/w3style.css">
+        <link rel="stylesheet" href="css/modals.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+            .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+            .fa-anchor,.fa-coffee,.fa-briefcase,.fa-cubes {font-size:200px}
+        </style>
+        <script>
+            window.onclick = function(event) {
+                var singUpModal = document.getElementById('signUpModal');
+                var loginModal = document.getElementById('loginModal');
+                if (event.target == loginModal || event.target == signUpModal) {
+                    signUpModal.style.display = "none";
+                    loginModal.style.display = "none";
+                }
             }
-        }
-    </script>
+        </script>
+    </head>
 
+    <body>
     <!-- Header -->
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
       <h1 class="w3-margin w3-jumbo">Shareet</h1>
@@ -39,7 +38,7 @@
     <!-- SignUp Modal -->
     <div id="signUpModal" class="modal">
       <span onclick="document.getElementById('signUpModal').style.display='none'" class="close" title="Close Modal">×</span>
-      <form class="modal-content animate" action="/action_page.php">
+      <form class="modal-content animate" action="signup" method="post">
         <div class="container">
           <label><b>Name</b></label>
           <input type="text" placeholder="Enter Name" name="name" required>
@@ -48,7 +47,7 @@
           <input type="text" placeholder="Enter Username" name="username" required>
 
           <label><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <input type="email" placeholder="Enter Email" name="email" required>
 
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
@@ -88,7 +87,7 @@
           <h1>Pay First. Share Later.</h1>
           <h5 class="w3-padding-16">And don't worry. We will take note on everything you pay and everyone who should help you pay it.</h5>
           <p class="w3-text-grey">Remember that time when someone in your group paid for something, while the rest agreed to share? How did you take note on who paid and who didn't? Now imagine a trip where you paid for the train tickets to go to Kiruna, Robert paid for the tickets to come back, Charly paid the hotel on the first night, Julio the other two nights and Sussie paid for the tickets to a local attraction. Does it seem harder to track? Well, not with Shareet. </p>
-        </div><html>
+        </div>
         <div class="w3-third w3-center">
           <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
         </div>

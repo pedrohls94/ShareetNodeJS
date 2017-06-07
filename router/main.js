@@ -12,4 +12,9 @@ module.exports = function(app)
     app.get('/test',function(req,res){
        res.render('test/index.html');
     });
+    app.post('/signup',function(req,res) {
+        var userController = require("../controllers/userController")
+        userController.save(req.body.name, req.body.username, req.body.email, req.body.psw)
+        res.redirect("/")
+    });
 }
