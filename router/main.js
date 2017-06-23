@@ -9,6 +9,9 @@ module.exports = function(app)
     app.get('/dashboard',function(req,res){
        res.render('dashboard.ejs');
     });
+    app.get('/indexptbr',function(req,res){
+       res.render('indexptbr.ejs');
+    });
     app.get('/test',function(req,res){
        res.render('test/index.html');
     });
