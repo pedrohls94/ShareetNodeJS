@@ -1,5 +1,5 @@
-module.exports = function(app)
-{
+module.exports = function(app, passport) {
+
     app.get('/',function(req,res){
         res.render('index.ejs')
      });
@@ -12,12 +12,9 @@ module.exports = function(app)
     app.get('/indexptbr',function(req,res){
        res.render('indexptbr.ejs');
     });
-    app.get('/test',function(req,res){
-       res.render('test/index.html');
-    });
-    app.post('/signup',function(req,res) {
-        var userController = require("../controllers/userController")
-        userController.save(req.body.name, req.body.username, req.body.email, req.body.psw)
-        res.redirect("/")
-    });
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/', // redirect to the secure profile section
+        failureRedirect : '/', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
 }
