@@ -1,4 +1,5 @@
 var mongoose = require("mongoose")
+var bcrypt   = require('bcrypt-nodejs');
 
 mongoose.connect("mongodb://localhost:27017/shareet_db")
 
@@ -11,6 +12,14 @@ var userSchema = new Schema({
     password: { type: String, required: true }
 })
 
-var User = mongoose.model("User", userSchema)
 
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+};
+
+var User = mongoose.model("User", userSchema)
 module.exports = User
