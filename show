@@ -1,0 +1,18 @@
+MongoDB shell version: 3.2.16
+connecting to: dbs
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+Server has startup warnings: 
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] 
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] 
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-08-07T10:44:40.110-0300 I CONTROL  [initandlisten] 
+> [3G[J[3G^C
+bye
