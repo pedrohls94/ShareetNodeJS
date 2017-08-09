@@ -22,9 +22,7 @@ module.exports = function(app)
 
     app.post('/login', function (req, res) {
         var user = userController.authenticate(req.body.username, req.body.psw, function callback(user){
-            console.log(user);
                 if (user != null) {
-                    console.log(user.id);
                     req.session.user_id = user.id;
                     res.redirect('/dashboard');
                 } else {
