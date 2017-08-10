@@ -17,17 +17,17 @@ module.exports = function(app)
 
     app.post('/signup',function(req,res) {
         userController.save(req.body.name, req.body.username, req.body.email, req.body.psw);
-        res.redirect("/");
+        res.redirect('/');
     });
 
     app.post('/login', function (req, res) {
-        var user = userController.authenticate(req.body.username, req.body.psw, function callback(user){
-                if (user != null) {
-                    req.session.user_id = user.id;
-                    res.redirect('/dashboard');
-                } else {
-                    res.send('Bad user/pass');
-                }
+        userController.authenticate(req.body.username, req.body.psw, function callback(user){
+            if (user != null) {
+                req.session.user_id = user.id;
+                res.redirect('/dashboard');
+            } else {
+                res.send('Bad user/pass');
+            }
         });
     });
 
@@ -37,7 +37,12 @@ module.exports = function(app)
     });
 
     app.get('/dashboard', checkAuth, function(req,res){
-       res.render('dashboard.ejs');
+        userController.find(req.session.user_id, function callback(user){
+            res.render('dashboard.ejs', {
+                userName:user.name,
+                test:'<a href="#" class="og-sidebar-item og-red-l3"><i class="fa fa-bell-o"></i> Notifications</a>'
+            });
+        });
     });
 }
 

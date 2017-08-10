@@ -14,7 +14,7 @@ var save = function(name, username, email, password) {
     })
 }
 
-module.exports.save = save
+module.exports.save = save;
 
 var authenticate = function(username, password, callback) {
     mongoOp.findOne({'username':username}, function(err, user) {
@@ -26,4 +26,12 @@ var authenticate = function(username, password, callback) {
     });
 }
 
-module.exports.authenticate = authenticate
+module.exports.authenticate = authenticate;
+
+var find = function(userId, callback) {
+    mongoOp.findOne({'_id':userId}, function(err, user) {
+        callback(user);
+    });
+}
+
+module.exports.find = find;

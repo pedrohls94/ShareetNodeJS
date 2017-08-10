@@ -123,6 +123,46 @@ body {
     color: #feeeee !important;
 }
 
+@keyframes og-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+.og-spin {
+
+}
+
+.og-spin:hover {
+    -webkit-animation: og-spin 3s infinite linear;
+    animation: og-spin 3s infinite linear;
+}
+
+@keyframes og-spin-l {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-359deg);
+        transform: rotate(-359deg);
+    }
+}
+
+.og-spin-l {
+
+}
+
+.og-spin-l:hover {
+    -webkit-animation: og-spin-l 2s infinite linear;
+    animation: og-spin-l 2s infinite linear;
+}
+
 /*Cards*/
 .og-card {
     background-color: rgba(256,256,256,0.85);
