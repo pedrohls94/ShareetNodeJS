@@ -1,6 +1,7 @@
 var express     =   require('express');
 var bodyParser  =   require("body-parser");
 var app         =    express();
+var mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
@@ -17,8 +18,10 @@ app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-//app.use(session({ secret: '$#%!@#@@#SSDASASDVV@@@@', key: 'sid'}));
 app.use(express.static(__dirname + '/public'));
+
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
 
 var server     =    app.listen(3001,function(){
 console.log("Express is running on port 3001");
