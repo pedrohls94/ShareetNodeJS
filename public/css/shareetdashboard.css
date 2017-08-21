@@ -88,7 +88,7 @@ body {
     z-index:1;
     overflow:auto;
     border-right: 1px solid #bd2a2a;
-    box-shadow: 0px 47px 16px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.4);
 }
 
 .og-sidebar-top {
