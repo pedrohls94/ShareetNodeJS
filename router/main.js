@@ -40,6 +40,7 @@ module.exports = function(app)
         userController.find(req.session.user_id, function callback(user){
             res.render('dashboard.ejs', {
                 userName:user.name,
+                userId:user.id,
                 test:'<a href="#" class="og-sidebar-item og-red-l3"><i class="fa fa-bell-o"></i> Notifications</a>'
             });
         });
