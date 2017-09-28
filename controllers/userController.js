@@ -1,6 +1,6 @@
 var mongoOp = require("../models/userModel")
 
-var save = function(name, username, email, password) {
+module.exports.save = function(name, username, email, password) {
     var db = new mongoOp()
 
     db.name = name
@@ -14,9 +14,7 @@ var save = function(name, username, email, password) {
     })
 }
 
-module.exports.save = save;
-
-var authenticate = function(username, password, callback) {
+module.exports.authenticate = function(username, password, callback) {
     mongoOp.findOne({'username':username}, function(err, user) {
         if (user.validPassword(password)) {
             callback(user);
@@ -26,12 +24,38 @@ var authenticate = function(username, password, callback) {
     });
 }
 
-module.exports.authenticate = authenticate;
-
-var find = function(userId, callback) {
+module.exports.find = function(userId, callback) {
     mongoOp.findOne({'_id':userId}, function(err, user) {
+        //TODO: error handling
         callback(user);
     });
 }
 
-module.exports.find = find;
+module.exports.requestFriendship = function(userId, friendId) {
+    mongoOp.findOne({'_id':friendId}, function(err, user) {
+        //TODO: error handling
+        user.friendRequests.push(userId);
+        user.save(function (err) {
+            if (err) console.log(err);
+        });
+    });
+}
+
+module.exports.acceptFriend = function(userId, friendId) {
+    mongoOp.findOne({'_id':userId}, function(err, user) {
+        //TODO: error handling
+        user.friendRequests.pop(friendId);
+        user.friends.push(friendId);
+        user.save(function (err) {
+            if (err) console.log(err);
+        });
+    });
+    mongoOp.findOne({'_id':friendId}, function(err, user) {
+        //TODO: error handling
+        user.friends.push(userId);
+        user.save(function (err) {
+            if (err) console.log(err);
+        });
+    });
+
+}

@@ -15,7 +15,7 @@ module.exports = function(app)
 
     var userController = require("../controllers/userController");
 
-    app.post('/signup',function(req,res) {
+    app.post('/signup',function(req, res) {
         userController.save(req.body.name, req.body.username, req.body.email, req.body.psw);
         res.redirect('/');
     });
@@ -34,6 +34,16 @@ module.exports = function(app)
     app.get('/logout', function (req, res) {
       delete req.session.user_id;
       res.redirect('/');
+    });
+
+    app.get('/addfriend', function (req, res) {
+      userController.requestFriendship("59cd183a4064e37698fc12cf", "59cd18c74c058376cf3d2e0a");
+      res.redirect('/dashboard');
+    });
+
+    app.get('/addfriend2', function (req, res) {
+      userController.acceptFriend("59cd18c74c058376cf3d2e0a", "59cd183a4064e37698fc12cf");
+      res.redirect('/dashboard');
     });
 
     app.get('/dashboard', checkAuth, function(req,res){
