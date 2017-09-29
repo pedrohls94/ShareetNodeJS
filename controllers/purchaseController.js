@@ -22,5 +22,3 @@ module.exports.find = function(purchaseId, callback) {
         }
     });
 }
-
-}
