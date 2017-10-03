@@ -1,34 +1,43 @@
 module.exports = function(app)
 {
+
+    /*
+     * Default routes
+     */
     app.get('/',function(req,res){
         res.render('index.ejs')
      });
+
     app.get('/about',function(req,res){
         res.render('about.html');
     });
+
     app.get('/indexptbr',function(req,res){
        res.render('indexptbr.ejs');
     });
+
     app.get('/test',function(req,res){
        res.render('test/index.html');
     });
 
+
+
+    /*
+     * User related routes
+     */
     var userController = require("../controllers/userController");
 
     app.post('/signup',function(req, res) {
-        userController.save(req.body.name, req.body.username, req.body.email, req.body.psw);
+        userController.save(req);
         res.redirect('/');
     });
 
     app.post('/login', function (req, res) {
-        userController.authenticate(req.body.username, req.body.psw, function callback(user){
-            if (user != null) {
-                req.session.user_id = user.id;
-                res.redirect('/dashboard');
-            } else {
-                res.send('Bad user/pass');
-            }
-        });
+        userController.authenticate(req, res);
+    });
+
+    app.get('/dashboard', checkAuth, function(req, res){
+        userController.startSession(req, res);
     });
 
     app.get('/logout', function (req, res) {
@@ -45,16 +54,7 @@ module.exports = function(app)
       userController.acceptFriend("59cd18c74c058376cf3d2e0a", "59cd183a4064e37698fc12cf");
       res.redirect('/dashboard');
     });
-
-    app.get('/dashboard', checkAuth, function(req,res){
-        userController.find(req.session.user_id, function callback(user){
-            res.render('dashboard.ejs', {
-                userName:user.name,
-                userId:user.id,
-                test:'<a href="#" class="og-sidebar-item og-red-l3"><i class="fa fa-bell-o"></i> Notifications</a>'
-            });
-        });
-    });
+    
 }
 
 function checkAuth(req, res, next) {
