@@ -1,37 +1,28 @@
 var mongoOp = require("../models/userModel")
 
-module.exports.save = function(name, username, email, password) {
+module.exports.save = function(name, username, email, password, error, success) {
     var db = new mongoOp();
     db.name = name;
     db.username = username;
     db.email = email;
     db.password = db.generateHash(password);
     db.save(function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("User created successfully");
-        }
+        if (err) error("Could not register user.");
+        else success("User successfully registered!");
     });
 }
 
 module.exports.find = function(userId, callback) {
     mongoOp.findOne({'_id':userId}, function(err, user) {
-        if (err) {
-            console.log(err);
-        } else {
-            callback(user);
-        }
+        if (err) console.log(err);
+        else callback(user);
     });
 }
 
 module.exports.findByUsername = function(username, callback) {
     mongoOp.findOne({'username':username}, function(err, user) {
-        if (err) {
-            console.log(err);
-        } else {
-            callback(user);
-        }
+        if (err) console.log(err);
+        else callback(user);
     });
 }
 

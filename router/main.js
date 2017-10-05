@@ -5,7 +5,10 @@ module.exports = function(app)
      * Default routes
      */
     app.get('/',function(req,res){
-        res.render('index.ejs')
+        var viewData = { success:req.session.success, error:req.session.error };
+        delete req.session.success;
+        delete req.session.error;
+        res.render('index.ejs', viewData);
      });
 
     app.get('/about',function(req,res){
@@ -28,8 +31,7 @@ module.exports = function(app)
     var userController = require("../controllers/userController");
 
     app.post('/signup',function(req, res) {
-        userController.save(req);
-        res.redirect('/');
+        userController.signup(req, res);
     });
 
     app.post('/login', function (req, res) {
@@ -54,7 +56,7 @@ module.exports = function(app)
       userController.acceptFriend("59cd18c74c058376cf3d2e0a", "59cd183a4064e37698fc12cf");
       res.redirect('/dashboard');
     });
-    
+
 }
 
 function checkAuth(req, res, next) {

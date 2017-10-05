@@ -1,7 +1,23 @@
 var userDBHelper = require("../dbhelpers/userDBHelper");
 
-module.exports.save = function(req) {
-    userDBHelper.save(req.body.name, req.body.username, req.body.email, req.body.psw);
+module.exports.signup = function(req, res) {
+    req.checkBody('name', 'Invalid name').isAlpha();
+    req.sanitizeBody('name').escape();
+    var errors = req.validationErrors();
+    if (errors) {
+        req.session.error = errors;
+        res.redirect('/');
+    } else {
+        var errorCallback = function(error) {
+            req.session.error = error;
+            res.redirect('/');
+        };
+        var successCallback = function(msg) {
+            req.session.success = msg;
+            res.redirect('/');
+        };
+        userDBHelper.save(req.body.name, req.body.username, req.body.email, req.body.psw, errorCallback, successCallback);
+    }
 }
 
 module.exports.authenticate = function(req, res) {

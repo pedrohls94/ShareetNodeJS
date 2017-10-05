@@ -13,6 +13,9 @@ app.use(cookieParser("config.cookieSecret"))
 var session = require('express-session');
 app.use(session({secret:'secretKey'}));
 
+var expressValidator = require('express-validator');
+app.use(expressValidator());
+
 require('./router/main')(app);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
