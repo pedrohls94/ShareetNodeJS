@@ -7,7 +7,10 @@ module.exports.save = function(name, username, email, password, error, success) 
     db.email = email;
     db.password = db.generateHash(password);
     db.save(function(err) {
-        if (err) error("Could not register user.");
+        if (err) {
+            if(err.code == 11000) error("Username already taken. Please choose another.");
+            else error("We're experiencing problems in our database. Please try again later.");
+        }
         else success("User successfully registered!");
     });
 }

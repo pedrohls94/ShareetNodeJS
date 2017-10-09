@@ -1,11 +1,17 @@
 var userDBHelper = require("../dbhelpers/userDBHelper");
 
 module.exports.signup = function(req, res) {
-    req.checkBody('name', 'Invalid name').isAlpha();
-    req.sanitizeBody('name').escape();
+    req.checkBody('name', 'cannot be empty').notEmpty();
+    req.checkBody('username', 'contains invalid characters').matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
+    req.checkBody('email', 'must be an email').isEmail();
+    req.checkBody('password', 'contains invalid characters').matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
     var errors = req.validationErrors();
     if (errors) {
-        req.session.error = errors;
+        errMsg = "";
+        for (let i=0; i<errors.length; i++) {
+            errMsg += "Field " + errors[i].param + " " + errors[i].msg + ". ";
+        }
+        req.session.error = errMsg;
         res.redirect('/');
     } else {
         var errorCallback = function(error) {
@@ -16,13 +22,13 @@ module.exports.signup = function(req, res) {
             req.session.success = msg;
             res.redirect('/');
         };
-        userDBHelper.save(req.body.name, req.body.username, req.body.email, req.body.psw, errorCallback, successCallback);
+        userDBHelper.save(req.body.name, req.body.username, req.body.email, req.body.password, errorCallback, successCallback);
     }
 }
 
 module.exports.authenticate = function(req, res) {
     userDBHelper.findByUsername(req.body.username, function callback(user){
-        if (user.validPassword(req.body.psw)) {
+        if (user.validPassword(req.body.password)) {
             req.session.user_id = user.id;
             res.redirect('/dashboard');
         } else {
