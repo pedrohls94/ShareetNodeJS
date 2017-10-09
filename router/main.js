@@ -11,19 +11,6 @@ module.exports = function(app)
         res.render('index.ejs', viewData);
      });
 
-    app.get('/about',function(req,res){
-        res.render('about.html');
-    });
-
-    app.get('/indexptbr',function(req,res){
-       res.render('indexptbr.ejs');
-    });
-
-    app.get('/test',function(req,res){
-       res.render('test/index.html');
-    });
-
-
 
     /*
      * User related routes

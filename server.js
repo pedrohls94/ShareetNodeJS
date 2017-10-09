@@ -1,20 +1,29 @@
-var express     =   require('express');
-var bodyParser  =   require("body-parser");
-var app         =    express();
-var mongoose = require('mongoose');
+var express             =   require('express');
+var bodyParser          =   require("body-parser");
+var mongoose            =   require('mongoose');
+var i18n                =   require("i18n-express");
+var cookieParser        =   require('cookie-parser');
+var session             =   require('express-session');
+var expressValidator    =   require('express-validator');
+
+var app =   express();
 
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-var cookieParser = require('cookie-parser');
 app.use(cookieParser("config.cookieSecret"))
 
-var session = require('express-session');
 app.use(session({secret:'secretKey'}));
 
-var expressValidator = require('express-validator');
 app.use(expressValidator());
+
+app.use(i18n({
+  translationsPath: __dirname + '/i18n',
+  defaultLang: "en",
+  siteLangs: ["en","pt-br"],
+  textsVarName: 'strings'
+}));
 
 require('./router/main')(app);
 app.set('views',__dirname + '/views');
