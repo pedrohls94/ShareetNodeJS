@@ -1,15 +1,15 @@
 var userDBHelper = require("../dbhelpers/userDBHelper");
 
 module.exports.signup = function(req, res) {
-    req.checkBody('name', 'cannot be empty').notEmpty();
-    req.checkBody('username', 'contains invalid characters').matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
-    req.checkBody('email', 'must be an email').isEmail();
-    req.checkBody('password', 'contains invalid characters').matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
+    req.checkBody('name', req.i18n_texts.Error_Form_Name).notEmpty();
+    req.checkBody('username', req.i18n_texts.Error_Form_Username).matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
+    req.checkBody('email', req.i18n_texts.Error_Form_Email).isEmail();
+    req.checkBody('password', req.i18n_texts.Error_Form_Password).matches("^[a-zA-Z0-9!@#$%&*()-_=+]*$");
     var errors = req.validationErrors();
     if (errors) {
         errMsg = "";
         for (let i=0; i<errors.length; i++) {
-            errMsg += "Field " + errors[i].param + " " + errors[i].msg + ". ";
+            errMsg += errors[i].msg + " ";
         }
         req.session.error = errMsg;
         res.redirect('/');
@@ -22,7 +22,7 @@ module.exports.signup = function(req, res) {
             req.session.success = msg;
             res.redirect('/');
         };
-        userDBHelper.save(req.body.name, req.body.username, req.body.email, req.body.password, errorCallback, successCallback);
+        userDBHelper.save(req, req.body.name, req.body.username, req.body.email, req.body.password, errorCallback, successCallback);
     }
 }
 
@@ -32,7 +32,8 @@ module.exports.authenticate = function(req, res) {
             req.session.user_id = user.id;
             res.redirect('/dashboard');
         } else {
-            console.log("Login authentication failed.");
+            req.session.error = req.i18n_texts.Error_Login;
+            res.redirect('/');
         }
     });
 }
@@ -42,8 +43,7 @@ module.exports.startSession = function(req, res) {
         res.render('dashboard.ejs', {
             userName:user.name,
             userId:user.id,
-            friends:user.friends,
-            test:'<a href="#" class="og-sidebar-item og-red-l3"><i class="fa fa-bell-o"></i> Notifications</a>'
+            friends:user.friends
         });
     });
 }

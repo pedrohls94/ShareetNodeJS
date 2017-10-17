@@ -8,7 +8,7 @@ module.exports.save = function(cost, shareers) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Purchase created successfully");
+            console.log(req.i18n_texts.Success_Purchase_Registered);
         }
     });
 }

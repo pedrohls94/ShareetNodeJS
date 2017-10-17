@@ -44,8 +44,8 @@
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
       <h1 class="w3-margin w3-jumbo">Shareet</h1>
       <p class="w3-xlarge"><%=strings.Index_Slogan%></p>
-      <button onclick="document.getElementById('loginModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline">Login</button>
-      <button onclick="document.getElementById('signUpModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline">Sign Up</button>
+      <button onclick="document.getElementById('loginModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline"><%=strings.Form_Login%></button>
+      <button onclick="document.getElementById('signUpModal').style.display='block'" class="w3-button w3-padding-large w3-large w3-margin-top curvedButton buttonOutline"><%=strings.Form_SignUp%></button>
     </header>
 
     <!-- SignUp Modal -->
@@ -53,20 +53,20 @@
       <span onclick="document.getElementById('signUpModal').style.display='none'" class="close" title="Close Modal">×</span>
       <form class="modal-content animate" action="signup" method="post">
         <div class="container">
-          <label><b>Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" required>
+          <label><b><%=strings.Form_Name%></b></label>
+          <input type="text" placeholder="<%=strings.Form_Username_Placeholder%>" name="name" required>
 
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+          <label><b><%=strings.Form_Username%></b></label>
+          <input type="text" placeholder="<%=strings.Form_Name_Placeholder%>" name="username" required>
 
-          <label><b>Email</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required>
+          <label><b><%=strings.Form_Email%></b></label>
+          <input type="email" placeholder="<%=strings.Form_Email_Placeholder%>" name="email" required>
 
-          <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <label><b><%=strings.Form_Password%></b></label>
+          <input type="password" placeholder="<%=strings.Form_Password_Placeholder%>" name="password" required>
 
           <div class="clearfix">
-            <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="submit" class="signupbtn"><%=strings.Form_SignUp%></button>
           </div>
         </div>
       </form>
@@ -77,14 +77,14 @@
       <span onclick="document.getElementById('loginModal').style.display='none'" class="close" title="Close Modal">×</span>
       <form class="modal-content animate" action="login" method="post">
         <div class="container">
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+          <label><b><%=strings.Form_Username%></b></label>
+          <input type="text" placeholder="<%=strings.Form_Username_Placeholder%>" name="username" required>
 
-          <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <label><b><%=strings.Form_Password%></b></label>
+          <input type="password" placeholder="<%=strings.Form_Password_Placeholder%>" name="password" required>
 
           <div class="clearfix">
-            <button type="submit" class="signupbtn">Login</button>
+            <button type="submit" class="signupbtn"><%=strings.Form_Login%></button>
           </div>
         </div>
       </form>
@@ -148,7 +148,7 @@
 
     <!-- Before Footer -->
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-        <h1 class="w3-margin w3-xlarge">Enjoy</h1>
+        <h1 class="w3-margin w3-xlarge"><%=strings.Index_Footer%></h1>
     </div>
 
     <!-- Footer -->

@@ -7,7 +7,7 @@ module.exports.save = function(name) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Group created successfully");
+            console.log(req.i18n_texts.Success_Group_Registered);
         }
     });
 }

@@ -1,21 +1,52 @@
 {
     "Index_Slogan": "Nunca esqueça suas dívidas. Nem quem o deve.",
-
     "Index_1_Title": "Pague Primeiro. Divida Depois.",
     "Index_1_Subtitle": "E não se preocupe. Nós anotaremos tudo que você pagar e todos que devem ajudá-lo a pagar.",
     "Index_1_Text": "Lembra daquela vez que alguém no seu grupo pagou por algo, e todos concordaram em dividir? Como vocês controlaram quem já havia pago a sua parte e quem não? Agora imagine uma viagem que você tenha pagado pela passagem de trem para ir para Kiruna, Robert pagou a passagem de volta, Charly o hotel da primeira noite, Julio o hotel das outras duas e Sussie pagou as entradas para uma atração local. Parece mais difícil de controlar? Bem, não com Shareet.",
-
     "Index_2_Title": "É rápido. É simples.",
     "Index_2_Subtitle": "Toda vez que pagares por algo, apenas nos diga quanto custou e quem, entre seus amigos, ajudárão a pagar.",
     "Index_2_Text": "Mostraremos o histórico de tudo que você comprou e tudo o que concordou em dividir, todos que te pagaram e todos para quem você pagou. Nós também mostraremos todos que devem algo para você, e o lembraremos de todos para quem você deve. Ah, e sabia que somos bons com matemática? Então deixe conosco! Se 30 pessoas devem para você por 100 diferentes motivos, nós mostraremos o total que cada um deve para você!",
-
     "Index_3_Title": "Você não fará tudo sozinho.",
     "Index_3_Subtitle": "Seria demais para você registrar todos os pagamentos que recebesse sozinho.",
     "Index_3_Text": "Portanto, todo amigo seu que concordou em dividir os custos de algum produto ou evento com você poderá nos dizer que realizou um pagamento para você. Afinal, é do interesse deles que você lembre que eles já pagaram. E que eles lembrem também, claro. Apesar de não esperarmos que alguém minta sobre ter pagado algo que não pagou, você terá a opção de confirmar todos os pagamentos que recebeu, se desejar.",
-
     "Index_4_Title": "Organização é tudo.",
     "Index_4_Subtitle": "Você talvez tenha grupos de amigos com quem realiza alguma atividade semanal, ou com quem está viajando. Se esse for o caso, provavelmente faria sentido separá-los em grupos, certo?",
     "Index_4_Text": "Com a criação de etiquetas para pessoas, compras e pagamentos, tudo estará muito mais organizado. Você encontrará as pessoas certas mais facilmente na hora de registrar compras, poderemos mostrá-los os valores separados de forma ajeitada. Logo, o Shareet ficará muito mais bonito (mais do que já é).",
+    "Index_Footer": "Divirta-se",
+
+    "Dashboard_Menu_Home": "Início",
+    "Dashboard_Menu_Purchases": "Compras",
+    "Dashboard_Menu_Payments": "Pagamentos",
+    "Dashboard_Menu_Groups": "Grupos",
+    "Dashboard_Menu_Friends": "Amigos",
+    "Dashboard_Menu_History": "Histórico",
+    "Dashboard_Menu_Notifications": "Notificações",
+    "Dashboard_Menu_Settings": "Configurações",
+    "Dashboard_Menu_Logout": "Sair",
+
+    "Form_Username": "Usuário",
+    "Form_Name": "Nome",
+    "Form_Password": "Senha",
+    "Form_Email": "Email",
+    "Form_Login": "Logar",
+    "Form_SignUp": "Registrar",
+    "Form_Username_Placeholder": "Insira seu usuário",
+    "Form_Name_Placeholder": "Insira seu nome",
+    "Form_Password_Placeholder": "Insira sua senha",
+    "Form_Email_Placeholder": "Insira seu email",
+
+    "Error_Not_Logged_In": "Você não está logado.",
+    "Error_Login": "Usuário/Senha incorretos.",
+    "Error_Username_Unavailable": "Nome de usuário indisponível. Por favor, escolha outro.",
+    "Error_Db": "Estamos com problemas na conexão com o banco de dados. Por favor, tente novamente mais tarde.",
+    "Error_Form_Name": "O campo 'Nome' não pode estar vazio.",
+    "Error_Form_Username": "O campo 'Usuário' contém caracteres inválidos.",
+    "Error_Form_Email": "O campo 'Email' deve conter um email.",
+    "Error_Form_Password": "O campo 'Senha' contém caracteres inválidos.",
+
+    "Success_User_Registered": "Usuário registrado com sucesso!",
+    "Success_Purchase_Registered": "Compra registrada com sucesso!",
+    "Success_Group_Registered": "Grupo registrado com sucesso!",
 
     "dummy": "dummy"
 }

@@ -48,7 +48,8 @@ module.exports = function(app)
 
 function checkAuth(req, res, next) {
     if (!req.session.user_id) {
-        res.send('You are not authorized to view this page');
+        var viewData = { error:req.i18n_texts.Error_Not_Logged_In };
+        res.render('index.ejs', viewData);
     } else {
         res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
         next();

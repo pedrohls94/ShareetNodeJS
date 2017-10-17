@@ -1,6 +1,6 @@
 var mongoOp = require("../models/userModel")
 
-module.exports.save = function(name, username, email, password, error, success) {
+module.exports.save = function(req, name, username, email, password, error, success) {
     var db = new mongoOp();
     db.name = name;
     db.username = username;
@@ -8,10 +8,10 @@ module.exports.save = function(name, username, email, password, error, success) 
     db.password = db.generateHash(password);
     db.save(function(err) {
         if (err) {
-            if(err.code == 11000) error("Username already taken. Please choose another.");
-            else error("We're experiencing problems in our database. Please try again later.");
+            if(err.code == 11000) error(req.i18n_texts.Error_Username_Unavailable);
+            else error(req.i18n_texts.Error_Db);
         }
-        else success("User successfully registered!");
+        else success(req.i18n_texts.Success_User_Registered);
     });
 }
 
